@@ -1,0 +1,25 @@
+<div class="card mb-3" *ngFor="let item of petDetails">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <div class="card-body">
+                <img [src]="createImgPath(item.filePath)" onerror="this.src='../../assets/icons/NoImage.png'" class="img-fliud rounded-circle image" style="width: 50%;" alt="...">
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card-body" style="margin-top: 2%;">
+                <div class="card">
+                    <div class="card-body">
+                        <p>Name: {{item.name}}</p>
+                        <p>Contact Details: {{item.contactAddress}}</p>
+                        <p>Lost At: {{item.lostCity}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="d-flex justify-content-center mb-3">
+                <button class="btn btn-primary" (click)="found(item)">{{buttonTitile(item)}}</button>
+            </div>
+        </div>
+    </div>
+</div>

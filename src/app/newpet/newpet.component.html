@@ -1,0 +1,55 @@
+<div class="card text-start">
+    <div class="card-header">
+        Add Pet
+    </div>
+    <div class="card-body">
+        <form [formGroup]="addPetForm" enctype="multipart/form-data">
+            <div class="mb-3 row">
+                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="name" formControlName="name">
+                    <span *ngIf="addPetForm?.get('name')?.errors && formSubmitted" class="alert">
+                        Name is required.
+                    </span>
+                </div>
+
+            </div>
+            <div class="mb-3 row">
+                <label for="contactDetails" class="col-sm-2 col-form-label">Contact Details</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="contactDetails" formControlName="contactAddress">
+                    <span *ngIf="addPetForm?.get('contactAddress')?.errors && formSubmitted" class="alert">
+                        Contact Address is required.
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="lostAt" class="col-sm-2 col-form-label">Lost At</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="lostAt" formControlName="lostCity">
+                    <span *ngIf="addPetForm?.get('lostCity')?.errors && formSubmitted" class="alert">
+                        Lost city is required.
+                    </span>
+                </div>
+            </div>
+            <div class="mb-3 row">
+                <label for="petImage" class="col-sm-2 col-form-label">Pet Image</label>
+                <div class="col-sm-6">
+                    <input #file type="file" class="form-control" id="petImage" (change)="upload()"
+                        formControlName="filePath">
+                    <span *ngIf="addPetForm?.get('filePath')?.errors && formSubmitted" class="alert">
+                        Please upload pet image.
+                    </span>
+                </div>
+                <div class="col-sm-4">
+                    <button class="btn btn-primary" id="imageButton" (click)="onSaveImage()">Add Image</button>
+                </div>
+            </div>
+
+            <div class="mt-5">
+                <button class="btn btn-primary" type="submit" (click)="onSave()">Submit</button>
+                <button class="btn btn-danger ms-5" type="submit" (click)="onCancel()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>
