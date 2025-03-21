@@ -38,7 +38,7 @@
                     <input #file type="file" class="form-control" id="petImage" (change)="upload()"
                         formControlName="filePath">
                     <span *ngIf="addPetForm?.get('filePath')?.errors && formSubmitted" class="alert">
-                        Please upload pet image.
+                        Please upload pet image by clicking Add Image button before proceeding save.
                     </span>
                 </div>
                 <div class="col-sm-4">
