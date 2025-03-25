@@ -24,7 +24,6 @@ export class NewPetComponent implements OnInit {
 
   addPetForm!: FormGroup;
   file!: File;
-  fileSave = false;
   petDetails!: Pet;
   formSubmitted = false;
   petImage!: Image;
@@ -69,7 +68,8 @@ export class NewPetComponent implements OnInit {
 
   onSaveImage(): void {
     this.formSubmitted = true;
-    this.addPetForm.get("filePath")?.clearAsyncValidators();
+    this.addPetForm.get("filePath")?.clearValidators();
+    this.addPetForm.updateValueAndValidity();
     if (this.addPetForm.valid) {
       this.petService.uploadImage(this.file).subscribe((response) => {
         this.petImage = response;

@@ -11,9 +11,10 @@ export const routes: Routes = [
     component: DashboardComponent,
     children: [
       { path: '', component: HomeComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'add', component: NewPetComponent },
-      { path: 'pets', component: ViewPetComponent },
+      { path: 'home', loadComponent: () => import("../app/home/home.component").then(component => component.HomeComponent) },
+      { path: 'login', loadComponent: () => import("../app/login/login.component").then(component => component.LoginComponent) },
+      { path: 'add', loadComponent: () => import("../app/newpet/newpet.component").then(component => component.NewPetComponent) },
+      { path: 'pets', loadComponent: () => import("../app/viewpet/viewpet.component").then(component => component.ViewPetComponent) },
     ],
   },
 ];

@@ -17,7 +17,7 @@
             <div class="mb-3 row">
                 <label for="contactDetails" class="col-sm-2 col-form-label">Contact Details</label>
                 <div class="col-sm-10">
-                    <input type="text" class="form-control" id="contactDetails" formControlName="contactAddress">
+                    <input type="email" class="form-control" id="contactDetails" formControlName="contactAddress">
                     <span *ngIf="addPetForm?.get('contactAddress')?.errors && formSubmitted" class="alert">
                         Contact Address is required.
                     </span>
@@ -35,10 +35,13 @@
             <div class="mb-3 row">
                 <label for="petImage" class="col-sm-2 col-form-label">Pet Image</label>
                 <div class="col-sm-6">
-                    <input #file type="file" class="form-control" id="petImage" (change)="upload()"
+                    <input #file type="file" accept="image/png, image/gif, image/jpeg" class="form-control" id="petImage" (change)="upload()"
                         formControlName="filePath">
                     <span *ngIf="addPetForm?.get('filePath')?.errors && formSubmitted" class="alert">
                         Please upload pet image by clicking Add Image button before proceeding save.
+                    </span>
+                    <span *ngIf="formSubmitted && petImage.isImageUploaded" class="alert alert-success">
+                        Image saved successfully.
                     </span>
                 </div>
                 <div class="col-sm-4">
@@ -47,7 +50,7 @@
             </div>
 
             <div class="mt-5">
-                <button class="btn btn-primary" type="submit" (click)="onSave()">Submit</button>
+                <button class="btn btn-primary" type="submit" [disabled]="!petImage.isImageUploaded" (click)="onSave()">Submit</button>
                 <button class="btn btn-danger ms-5" type="submit" (click)="onCancel()">Cancel</button>
             </div>
         </form>

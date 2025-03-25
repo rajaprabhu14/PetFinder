@@ -3,14 +3,17 @@ import { ViewPetComponent } from './viewpet.component';
 import { PetService } from '../services/petService';
 import { CommonModule } from "@angular/common";
 import { of } from "rxjs";
+import { PetDetails } from "../models/petDetails";
 
 describe("View Pet Component", () => {
     let component: ComponentFixture<ViewPetComponent>;
     let mockPetService: PetService;
 
+    const petDetails = new PetDetails(1, "testPet", "testAddress", "testCity", "", false);
+
     beforeEach(() => {
         mockPetService = jasmine.createSpyObj("PetService", ["getPetDetails"]);
-        (mockPetService.getPetDetails as jasmine.Spy).and.returnValue(of());
+        (mockPetService.getPetDetails as jasmine.Spy).and.returnValue(of([petDetails]));
 
         TestBed.configureTestingModule({
             providers: [
@@ -25,5 +28,9 @@ describe("View Pet Component", () => {
 
     it("shoudld create the component without errors", () => {
         expect(component).toBeTruthy();
+    });
+
+    it("should call the getDetails method", () => {
+        expect(mockPetService.getPetDetails).toHaveBeenCalled();
     });
 });

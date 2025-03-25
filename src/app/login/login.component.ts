@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     sessionStorage.setItem('loggedInUser', '');
-    this.loginForm = new FormBuilder().group({
+    this.loginForm = this.formBuilder.group({
         email: ['', Validators.required],
         password: ['', Validators.required]
     });

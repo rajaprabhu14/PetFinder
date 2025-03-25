@@ -14,17 +14,23 @@ body {
     padding: 2%;
     height: 100vh;
     color: white;
-    background: linear-gradient(326deg, #d3961b 0%, #c15353 74%) fixed;
+    background-color: #298ebd;
+    // background: linear-gradient(326deg, #ebad50 0%, #ba0e0e 74%) fixed;
 }
 
 .nav-link {
-    color: black;
+    color: rgb(229 229 229);
 }
 
-.nav-pills>.active>a,
-.nav-pills>.active>a:hover {
-    background-color: red;
+.active-route {
+    background: rgb(74 76 106);
+    border-bottom: 2px solid rgb(232, 89, 89);  
 }
+
+// .nav-pills>.active>a,
+// .nav-pills>.active>a:hover {
+//     background-color: red;
+// }
 
 .image {
     align-items: center;
@@ -40,17 +46,6 @@ body {
     //background-color: transparent !important;
     border: 1.15px solid #561139;
     border-radius: 0;
-}
-
-.badge {
-    &.badge-donate {
-        margin-left: -0.5rem;
-        margin-bottom: -0.5rem;
-    }
-
-    &.badge-notify {
-        margin-left: -1rem;
-    }
 }
 
 a {
@@ -78,41 +73,11 @@ h2 {
     border: 2px solid red;
 }
 
-.table {
-    background-color: rgba(0, 0, 0, 0.075);
-
-    thead {
-        th {
-            color: #561139;
-            border-top: none;
-        }
-    }
-
-    td {
-        color: #561139;
-        border: none;
-    }
-
-    button {
-        &:focus {
-            outline: 2px solid #561139;
-        }
-    }
-}
-
-.profile {
-    background-color: rgba(0, 0, 0, 0.075);
-}
-
 .center {
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
-}
-
-.modal-content {
-    color: #561139;
 }
 
 .alert {
@@ -121,4 +86,8 @@ h2 {
     margin-top: 0.25rem;
     font-size: 0.875em;
     color: var(--bs-form-invalid-color);
+}
+
+.alert-success {
+    color: #155724;
 }
