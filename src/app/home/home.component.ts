@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { RouterLink, RouterModule } from '@angular/router';
 import { PetService } from '../services/petService';
 import { CommonModule } from '@angular/common';
-import { PetDetails } from '../models/petDetails';
+import { Pet } from '../models/petDetails';
 import { Envoirnment } from '../config/config';
 
 @Component({
@@ -12,7 +12,7 @@ import { Envoirnment } from '../config/config';
   templateUrl: './home.component.html',
 })
 export class HomeComponent implements OnInit {
-  petDetails!: PetDetails[];
+  petDetails!: Pet[];
   showError = false;
   constructor(private petService: PetService) {}
 

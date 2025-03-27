@@ -1,24 +1,24 @@
-import { Component } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { NewPetComponent } from './newpet.component';
+import { AddPetComponent } from "./add.component"
 import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { PetService } from '../services/petService';
+import { PetService } from '../../services/petService';
 import { Router } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
-describe("New Pet Component", () => {
-    let Component: ComponentFixture<NewPetComponent>;
+describe("Add Pet Component", () => {
+    let Component: ComponentFixture<AddPetComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [FormsModule, ReactiveFormsModule, CommonModule, NewPetComponent],
+            imports: [FormsModule, ReactiveFormsModule, CommonModule, AddPetComponent, HttpClientModule],
             providers: [{ provide: PetService, useValue: "" },
                 { provide: FormBuilder, usevalue: new FormBuilder() },
                 { provide: Router, useValue: ""}
             ]
         }).compileComponents();
 
-        Component = TestBed.createComponent(NewPetComponent);
+        Component = TestBed.createComponent(AddPetComponent);
     });
 
     it("should create the component without any errors", () => {

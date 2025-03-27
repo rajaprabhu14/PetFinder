@@ -5,21 +5,23 @@
     </div>
 
     <div class="mb-5">
-        <p>Make a difference to people around you.</p>
+        <p>Help people to find their missing pet.</p>
     </div>
    
     <form [formGroup]="loginForm">
         <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address
+            <label for="userName" class="form-label">UserName
                 <span class="text-danger">*</span>
             </label>
-            <input type="email" class="form-control" id="exampleInputEmail1" formControlName="email"
+            <input type="email" class="form-control" id="userName" formControlName="userName"
                 aria-describedby="emailHelp">
+            <span *ngIf="formSubmitted && loginForm.get('userName')?.errors" class="alert">Please enter userName</span>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1">
+            <span *ngIf="formSubmitted && loginForm.get('password')?.errors" class="alert">Please enter password</span>
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" (click)="onSubmit()">Submit</button>
     </form>
 </div>
